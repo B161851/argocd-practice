@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp-naresh
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/B161851/argocd-practice
+    targetRevision: HEAD
+    path: demo/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
+
