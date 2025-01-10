@@ -3,4 +3,4 @@ resources:
   - service.yaml
 
 commonLabels:
-  owner: Naresh_Pentala_NS
+  owner: Naresh_Pentala
